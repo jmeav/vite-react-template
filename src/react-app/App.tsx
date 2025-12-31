@@ -1,65 +1,85 @@
-// src/App.tsx
-
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import cloudflareLogo from "./assets/Cloudflare_Logo.svg";
-import honoLogo from "./assets/hono.svg";
+import logoSinFondo from "../images/logo_sinfondo.png";
 import "./App.css";
 
 function App() {
-	const [count, setCount] = useState(0);
-	const [name, setName] = useState("unknown");
 
 	return (
-		<>
-			<div>
-				<a href="https://vite.dev" target="_blank">
-					<img src={viteLogo} className="logo" alt="Vite logo" />
-				</a>
-				<a href="https://react.dev" target="_blank">
-					<img src={reactLogo} className="logo react" alt="React logo" />
-				</a>
-				<a href="https://hono.dev/" target="_blank">
-					<img src={honoLogo} className="logo cloudflare" alt="Hono logo" />
-				</a>
-				<a href="https://workers.cloudflare.com/" target="_blank">
-					<img
-						src={cloudflareLogo}
-						className="logo cloudflare"
-						alt="Cloudflare logo"
-					/>
-				</a>
+		<div className="app-container">
+			<div className="geometric-shapes">
+				<div className="shape shape-1"></div>
+				<div className="shape shape-2"></div>
+				<div className="shape shape-3"></div>
 			</div>
-			<h1>Vite + React + Hono + Cloudflare</h1>
-			<div className="card">
-				<button
-					onClick={() => setCount((count) => count + 1)}
-					aria-label="increment"
-				>
-					count is {count}
-				</button>
-				<p>
-					Edit <code>src/App.tsx</code> and save to test HMR
+
+			<div className="content">
+				<div className="logo-wrapper">
+					<img src={logoSinFondo} alt="Credi Jireh" className="logo" />
+					<div className="logo-ring"></div>
+				</div>
+
+				<h1 className="main-title">
+					<span>Credi</span>
+					<span className="accent">Jireh</span>
+				</h1>
+
+				<div className="coming-soon-box">
+					<div className="coming-soon-label">Próximamente</div>
+					<div className="dots-container">
+						<span className="dot"></span>
+						<span className="dot"></span>
+						<span className="dot"></span>
+					</div>
+				</div>
+
+				<p className="description">
+					Estamos desarrollando una plataforma innovadora
+					<br />
+					para ofrecerte la mejor experiencia en créditos
 				</p>
+
+				<div className="progress-wrapper">
+					<div className="progress-info">
+						<span className="progress-label">Desarrollo en curso</span>
+					</div>
+					<div className="progress-track">
+						<div className="progress-indicator"></div>
+					</div>
+				</div>
+
+				<div className="benefits-grid">
+					<div className="benefit-card">
+						<div className="benefit-icon-wrapper">
+							<span className="benefit-icon">🚀</span>
+						</div>
+						<h3>Innovación</h3>
+						<p>Tecnología de vanguardia</p>
+					</div>
+					<div className="benefit-card">
+						<div className="benefit-icon-wrapper">
+							<span className="benefit-icon">🛡️</span>
+						</div>
+						<h3>Seguridad</h3>
+						<p>Protección de datos</p>
+					</div>
+					<div className="benefit-card">
+						<div className="benefit-icon-wrapper">
+							<span className="benefit-icon">💼</span>
+						</div>
+						<h3>Profesionalismo</h3>
+						<p>Servicio confiable</p>
+					</div>
+				</div>
+
+				<div className="notification-badge">
+					<span className="bell-icon">🔔</span>
+					<span>Te notificaremos cuando estemos listos</span>
+				</div>
 			</div>
-			<div className="card">
-				<button
-					onClick={() => {
-						fetch("/api/")
-							.then((res) => res.json() as Promise<{ name: string }>)
-							.then((data) => setName(data.name));
-					}}
-					aria-label="get name"
-				>
-					Name from API is: {name}
-				</button>
-				<p>
-					Edit <code>worker/index.ts</code> to change the name
-				</p>
-			</div>
-			<p className="read-the-docs">Click on the logos to learn more</p>
-		</>
+
+			<footer className="footer">
+				<p>Credi Jireh &copy; {new Date().getFullYear()} | Alcanzando el Éxito</p>
+			</footer>
+		</div>
 	);
 }
 
